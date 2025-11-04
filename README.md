@@ -10,14 +10,15 @@ A simple potentiometer controlled 7 segment display which is driven by a 7 segme
 
 This project involves bare metal MCU programming. Using bit manipulation a PWM signal is being generated pin non PWM enabled pins on Arduino.
 
-![[bit-banging.png]]
+![](/assets/bit-banging.png?raw=true)
 
 **Bit Banging  2**
 
 This project lights up two LEDs for different time intervals: YELLOW 1 second on / 1 second off, and GREEN 1 minute on / 1 minute off.
 The whole process is once again managed by bit and register manipulation
 
-![[bit-banging2.png]]
+![](/assets/bit-banging2.png?raw=true)
+
 
 **UART communication**
 
@@ -29,4 +30,4 @@ When the first button is pressed, the red LED should turn on, the green LED shou
 
 When the second button is pressed, the green LED turns on, while the red LED turns off.
 
-![[uart.png]]
+![](/assets/uart.png?raw=true)
