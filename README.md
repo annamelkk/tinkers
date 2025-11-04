@@ -4,7 +4,7 @@ This is a repository for my mostly Arduino and STM32 tinkering projects.
 
 A simple potentiometer controlled 7 segment display which is driven by a 7 segment decoder.
 
-![[7-segment-display.png]]
+![](/assets/7-segment-display.png?raw=true)
 
 **Bit-Bagning**
 
