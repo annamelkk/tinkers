@@ -31,3 +31,17 @@ When the first button is pressed, the red LED should turn on, the green LED shou
 When the second button is pressed, the green LED turns on, while the red LED turns off.
 
 ![](/assets/uart.png?raw=true)
+
+**Minute Timer**
+
+The goal of this task is to make a timer that shows the time from startup in MM:SS format.
+
+I need to use four separate 7-segment displays connected to a **single** Arduino UNO R3 board. 
+
+One solution is with BCD to 7 segment decoders. For each display a we take a CD4511 chip and then using software assign each display the respective digit.
+
+Thanks to these chips we decrease the amount of GPIO pins needed from $7 \cdot 4 = \underline{28}$ to $4 \cdot 4 = \underline{16}$. 
+
+However we have only 14 digital input/output pins. Thankfully the analog pins on ATmega328P, which is the chip on which Arduino Uno R3 based does not have ADC-only pins, so we can use ADC pins as GPIOs.
+
+![](/assets/minute-timer.png?raw=true)
