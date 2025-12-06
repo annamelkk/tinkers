@@ -45,3 +45,34 @@ Thanks to these chips we decrease the amount of GPIO pins needed from $7 \cdot 4
 However we have only 14 digital input/output pins. Thankfully the analog pins on ATmega328P, which is the chip on which Arduino Uno R3 based does not have ADC-only pins, so we can use ADC pins as GPIOs.
 
 ![](/assets/minute-timer.png?raw=true)
+
+
+**Running Circle**
+
+For this project we have a circle made on a seven segment display which is controlled by 4 push-buttons: UP, DOWN, RIGHT, LEFT
+
+ decided to use 8 bit shift register (74HC595).
+To turn on only one 7 segment display at a time NPN transistors were used.
+4 push-buttons were configured with pullup resistors for control.
+
+With this I only have used 3 GPIO for shift register, 4 for transistors, 4 for buttons
+
+All 4 digits (each display) are share the same segment wires, and each digit is powered by the corresponding transistor. 
+With shift register the pattern was written in terms of binary.
+
+The `shiftOut()` function sends the pattern to the register, which then lights up the segments.
+
+Display is updated through multiplexing:
+every 100 microseconds
+- turn off current digit
+- move to next
+- send the pattern to shift register
+- turn this digits transistor
+
+Then the button state is read
+- read current state
+- if changed from last reading - the timer is reset
+- if stable for 40ms accepts as real state change
+- since we have pullup resistors the buttons are active low
+
+![](/assets/running_circle.png?raw=true)
