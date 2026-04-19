@@ -10,7 +10,7 @@ Servo yo_serve;
 void setup() {
     Serial.begin(9600);
     pinMode(SW_pin, INPUT_PULLUP);
-    yo_serve.attach(servo_pin, 500, 2400); // Attach with standard pulse widths
+    yo_serve.attach(servo_pin, 500, 2400); // attach with standard pulse widths
 }
 
 void loop() {
@@ -25,11 +25,11 @@ void loop() {
   Serial.print(" | Button: "); Serial.println(pressed ? "PRESSED" : "released");
 
   if (x > 20)
-    servo_kd(0); 
+    servo_kd(0);  // center
   else if (x < -20)
-    servo_kd(180); // Move to other side if pushed left
+    servo_kd(180); // left
   else 
-    servo_kd(90);   // Return to 0 only when in the center deadzone
+    servo_kd(90);   // right
 
   delay(15);
 }
